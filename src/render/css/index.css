@@ -1,0 +1,210 @@
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('ubuntu.ttf');
+}
+
+body {
+    font-family: 'Ubuntu';
+    background: #141618;
+    color: white;
+    transition: color 500ms, background 500ms;
+}
+header {
+    width: 100%;
+}
+header .logo {
+    position: fixed;
+    left: 2.5%;
+    top: 3%;
+}
+header .logo img {
+    width: 50px;
+    height: auto;
+}
+nav {
+    background: transparent;
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    margin-top: 2%;
+}
+nav.nav-center ul {
+    text-align: center;
+}
+nav.nav-center ul li {
+    display: inline;
+    float: none;
+}
+nav.nav-center ul li a {
+    display: inline-block;
+    color: gray;
+    transition: color 250ms;
+}
+nav.nav-center ul li a:hover {
+    background: transparent;
+    color: white;
+}
+nav.nav-center ul li a.active {
+    color: white;
+    border-bottom: 1px solid rgb(143, 143, 143);
+}
+
+#update .progress {
+    margin: 0;
+}
+#update {
+    position: fixed;
+    width: 15%;
+    bottom: 1%;
+    right: 0.5%;
+}
+#update a {
+    cursor: pointer;
+}
+.btn {
+    background: #ff0000;
+}
+.btn:hover {
+    background: #ff3737;
+}
+
+.collapsible {
+    border: 1px solid #2b2f33;
+}
+.collapsible-header {
+    border-bottom: 1px solid #2b2f33;
+    background: transparent;
+}
+.collapsible-body {
+    border-bottom: 1px solid #2b2f33;
+}
+.keyboard-focused .collapsible-header:focus {
+    background-color: transparent;
+}
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #2b2f33;
+    margin: 1em 0;
+    padding: 0;
+}
+input {
+    color: white;
+}
+.collection .collection-item {
+    background: transparent;
+}
+.collection-item img {
+    height: auto;
+    width: 250px;
+    float: left;
+}
+.collection-item .info {
+    margin-left: 255px;
+}
+.collection {
+    border: 1px solid #24272b;
+    padding: 5px;
+}
+.card {
+    background-color: #121212;
+}
+.card-content {
+    width: 100%;
+}
+#queue {
+    margin-top: 2%;
+}
+#version {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+.love {
+    color: red;
+    font-size: 16pt;
+}
+.switch label input[type=checkbox]:checked + .lever {
+    background-color: #ff3737;
+}
+.switch label input[type=checkbox]:checked + .lever:after {
+    background-color: #ff0000;
+}
+.modal {
+    background-color: #121212;
+}
+#patchNotes ul {
+    margin-left: 2.5%;
+}
+#patchNotes li {
+    list-style-type: initial;
+}
+.fixed-bottom {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
+}
+.modal .modal-footer {
+    background-color: #121212;
+}
+.btn-flat {
+    color: white;
+}
+body.light {
+    font-family: 'Ubuntu';
+    background: #fff;
+    color: #292929;
+}
+body.light nav.nav-center ul li a:hover {
+    background: transparent;
+    color: black;
+}
+body.light nav.nav-center ul li a.active {
+    color: black;
+    border-bottom: 1px solid rgb(143, 143, 143);
+}
+body.light .modal {
+    background-color: #fff;
+}
+body.light .modal .modal-footer {
+    background-color: #fff;
+}
+body.light .btn-flat {
+    color: black;
+}
+body.light input {
+    color: black;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 0px;
+    background: #a51a1ac5;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background: #a51a1a6b;
+}
+
+.right-align {
+    margin-right: 20px;
+}
+#online {
+    display: none;
+}
+#offline {
+    display: none;
+}

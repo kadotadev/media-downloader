@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Media Downloader</title>		
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="css/materialize.min.css">
+		<link rel="stylesheet" href="css/index.css">
+	</head>
+
+	<body>
+        <div id="offline">
+            <div class="center-align container">
+                <h1>No internet connection</h1>
+                <div class="progress">
+                    <div class="indeterminate"></div>
+                </div>
+            </div>
+        </div>
+        <div id="online">
+            <header>
+                <nav class="nav-center" role="navigation">
+                    <div class="nav-wrapper container">
+                        <ul>
+                            <li><a id="main" class="active"><i class="material-icons">play_circle_filled</i></a></li>
+                            <li><a id="about"><i class="material-icons">info</i></a></li>
+                            <li><a id="settings"><i class="material-icons">settings</i></a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <div id="version">...</div>
+                <div id="update" style="display:none;">
+                    <p>An update is downloading in the background...</p>
+                    <div class="progress">
+                        <div class="indeterminate"></div>
+                    </div>
+                </div>
+            </header>
+            <main>
+                <p class="left-align fixed-bottom">Made with <span class="love">&#10084;</span> by <a href="https://github.com/kadotadev" class="external">kadota</a></p>
+                <div class="container">
+                    <div id="main-content">
+                        <h3 class="center-align">Media Downloader</h3><hr><br>
+                        <div id="inputs" class="row">
+                            <div class="input-field col s9" id="field">
+                                <i class="material-icons prefix">insert_link</i>
+                                <input id="icon_prefix" type="url" class="validate">
+                                <label for="icon_prefix">YouTube video/playlist URL</label>
+                            </div>
+                            <div class="input-field col s3" id="type">
+                                <select>
+                                    <optgroup label="Audio">
+                                        <option value="mp3">MP3</option>
+                                        <option value="ogg">OGG</option>
+                                        <option value="wav">WAV</option>
+                                    </optgroup>
+                                    <optgroup label="Video">
+                                        <option value="mp4">MP4</option>
+                                        <option value="avi">AVI</option>
+                                        <option value="mov">MOV</option>
+                                    </optgroup>
+                                </select>
+                                <label>Download type</label>
+                            </div>
+                            <div class="center-align">
+                                <a class="waves-effect waves-light btn" id="dl-vid"><i class="material-icons left">file_download</i>Download</a>
+                            </div>
+                        </div>
+                        <div id="playList" style="display:none;">
+                            <h1 class="center-align">PARSING PLAYLIST...</h1>
+                            <div class="progress">
+                                <div class="indeterminate"></div>
+                            </div>						
+                        </div>
+    
+                        <div id="queue">
+                                <div class="queue">
+                                    <div class="queue-vids row">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div id="about-content" style="display:none;">
+                        <h3 class="center-align">About</h3><hr>
+                        <ul class="collapsible">
+                            <li class="active">
+                                <div class="collapsible-header"><i class="material-icons">security</i> Safe</div>
+                                <div class="collapsible-body">
+                                    <h5>No adverts</h5>
+                                    <p>This program will never have adverts, no matter what</p>
+                                    <h5>No unnecessary features</h5>
+                                    <p>Program does what it says, nothing else.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons">ondemand_video</i> Videos</div>
+                                <div class="collapsible-body">
+                                    <h5>Downloading videos</h5>
+                                    <p>To download a video, simply put a valid YouTube video/playlist URL into the text box, and press 'download'. It will then add that video to a queue and download it to your specified download folder</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons">playlist_play</i> Playlists</div>
+                                <div class="collapsible-body">
+                                    <h5>Downloading playlists</h5>
+                                    <p>The same as downloading a video, but you must copy the playlist URL into the textbox, after you press download it will automatically add all videos in that playlist to your queue</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons">contact_support</i> Support</div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons">favorite</i> Support me</div>
+                                <div class="collapsible-body">
+                                    <h5>Help future projects</h5>
+                                    <p>Since this a free program, please feel free to donate to me to support me in my future projects: <a href="https://paypal.me/splashies">Here</a></p>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="center-align"><a href="#" data-target="patchNotes" class="btn btn-light modal-trigger">Changelog</a></div>
+                    </div>
+                    <div id="settings-content" style="display:none;">
+                        <h3 class="center-align">Settings</h3>
+                        <hr>
+                        <ul class="collapsible">
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons">cloud_download</i> Downloads</div>
+                                <div class="collapsible-body">
+                                    <h5>Download multiple</h5>
+                                    <span>Doesn't use the queueing system, downloads all videos at the same time</span>
+                                    <p>Warning: This is not recommended for a large queues as it can really hinder your CPU / Network</p>
+                                    <div class="switch" id="multiDL" style="display:none;">
+                                        <label>
+                                            Off
+                                            <input type="checkbox">
+                                            <span class="lever"></span>
+                                            On
+                                        </label>
+                                    </div>
+                                    <hr>
+                                    <h5>Download folder</h5>
+                                    <a class="waves-effect waves-light btn" id="changeFolder"><i class="material-icons left">folder</i>Select folder</a>
+                                    <i id="currentFolder">loading...</i>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons">edit</i> Design</div>
+                                <div class="collapsible-body">
+                                    <h5>Dark mode</h5>
+                                    <div class="switch" id="theme" style="display:none;">
+                                        <label>
+                                            Off
+                                            <input type="checkbox">
+                                            <span class="lever"></span>
+                                            On
+                                        </label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons">security</i> Privacy</div>
+                                <div class="collapsible-body">
+                                    <p>We track how many videos are downloaded anonymously. None of this data is linked to you. Feel free to opt out of this however</p>
+                                    <h5>Track anonymously</h5>
+                                    <div class="switch" id="tracking" style="display:none;">
+                                        <label>
+                                            Off
+                                            <input type="checkbox">
+                                            <span class="lever"></span>
+                                            On
+                                        </label>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="patchNotes" class="modal">
+                        <div class="modal-content">
+                            <h3 id="changeLog">Changelog</h3>
+                            <hr>
+                            <h4 id="patchVersion">v1.0.0 (Current)</h4>
+                            <ul>
+                                <li>Initial release</li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#!" class="modal-close waves-effect btn-flat">Close</a>
+                        </div>
+                    </div>
+            </main>
+        </div>
+        
+    </body>
+    <script>let $ = require('jquery');</script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/index.js"></script>
+</html>
